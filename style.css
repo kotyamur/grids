@@ -1,0 +1,230 @@
+:root {
+    --main-text-color: #626262;
+    --secondary-text-color: #B4AD9E;
+    --nav-list-color: #7D7D7D;
+    --accent-color: #03A9F4;
+    --bg-color: #ffffff;
+    --main-text-size: 14px;
+    --title-text-size: 30px;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: "Playfair Display", serif;
+    font-size: var(--main-text-size);
+    color: var(--main-text-color);
+}
+
+h1, h2, h3, h4, p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+address {
+    font-style: normal;
+}
+
+
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+/* .link {
+    color: inherit;
+    text-decoration: none;
+} */
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.visually-hidden {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+  }
+
+.container {
+    /* max-width: 936px; */
+    width: 936px;
+    margin: 0 auto;
+    /* margin-left: auto;
+    margin-right: auto; */
+    padding: 0 15px;
+    
+    outline: 2px dashed #f44336;
+}
+
+.grid-container {
+    display: grid;
+    /* явна сітка */
+    grid-template-columns:  200px 200px 200px; 
+    grid-template-rows: 200px 152px;
+   
+    /* ширина контейнера ділиться порівну на фракції */
+     /* grid-template-columns: 1fr 1fr 1fr; */
+   
+    /* можна комбінувати */
+    /* grid-template-columns: 532px 1fr 1fr; */
+    /* grid-template-columns: 532px 2fr 1fr; */
+   
+    /* авто вирівнює колонку по контенту */
+    /* grid-template-columns: 532px auto 1fr; */
+   
+    /* функція repeat(кількість, розмір) */
+    /* grid-template-columns: repeat(5, 100px); */
+    /* 5 разів повториться 100 та 200 */
+    /* grid-template-columns: repeat(5, 100px 200px); */
+    /* grid-template-columns: repeat(4, 1fr); */
+    /* grid-template-columns: repeat(3, auto); */
+   
+    /* комбінації */
+    /* grid-template-columns: 100px repeat(3, 1fr) 200px; */
+   
+   /* autofill - розташує колонки по 150px */
+   /* Під час використання auto-fill створюється якомога більше стовпців (або рядків), які можуть вміститися в контейнер, навіть якщо ці стовпці пусті. */
+    /* З auto-fit, пусті стовпці (або рядки) будуть об'єднані, щоб елементи, які мають вміст, розтягувалися на ширину контейнера */
+    /* grid-template-columns: repeat(autofill, 150px); */
+   
+    gap: 20px;
+    column-gap: 18px;
+    row-gap: 20px;
+    gap: 20px 18px;
+   
+    grid-auto-rows: 100px; /*задаємо висоту рядків для неявної сітки*/
+    grid-auto-rows: 100px 50px;
+   
+    grid-auto-flow: row; /*по замовчуванню наступні елементи ідуть в наступні рядки*/
+     /* наступні елементи ідуть в колонку */
+     /* grid-auto-flow: column; */
+   }
+   
+   .grid-element {
+     background-color: bisque;
+   }
+   
+   /* респонсивну розмітку в CSS Grid */
+   .grid-cont {
+     display: grid;
+     gap: 20px;
+     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+     /* better to use autifit */
+     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+     background-color: aquamarine;
+   }
+   .grid-el {
+     background-color: rgb(172, 127, 255);
+   }
+   
+   .grid-element:first-child {
+      /* grid-column-start: 1; */
+      /* grid-column-end: 2; */
+     grid-column: 1 / 2;
+      /* grid-row-start: 1; */
+      /* grid-row-end: 3; */
+     grid-row: 1 / 3;
+   }
+   .grid-element:nth-child(2) {
+      /* grid-column-start: 2; */
+     /* grid-column-end: 3; */
+   grid-column: 2 / 3;
+     /* grid-row-start: 1; */
+      /* grid-row-end: 2; */
+     grid-row: 1 / 2;
+   }
+   .grid-element:nth-child(3) {
+     grid-column: 3 / 4;
+     grid-row: 1 / 2;
+   }
+   .grid-element:nth-child(4) {
+     grid-column: 2 / 4;
+     grid-row: 2 / 3;
+   }
+   
+   /* header-footer */
+   
+   .grid-test {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+   }
+   .grid-test > div{
+     background-color: aqua;
+   }
+   
+   .grid-Header {
+    /* grid-column-start: 1; */
+    /* grid-column-end: 5; */
+   grid-column: 1 / 5;
+    /* grid-row-start: 1; */
+    /* grid-row-end: 2; */
+   grid-row: 1 / 2;
+   }
+   .grid-Main {
+     /* grid-column-start: 1;
+     grid-column-end: 3;
+     grid-row-start: 2;
+    grid-row-end: 3; */
+    grid-column: 1 / 3;
+     grid-row: 2 / 3;
+   }
+   .grid-Sidebar {
+     grid-column: 4 / 5;
+     grid-row: 2 / 3;
+   }
+   .grid-footer {
+     grid-column: 1 / 5;
+     grid-row: 3 / 4;
+   }
+   
+   /* header-footer !!!!grid-template-areas */
+   
+   .grid-test {
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     gap: 20px;
+     grid-template-areas: 
+     "a a a a"
+     "b b . c"
+     "d d d d";
+    }
+   
+    @media (max-width: 767px) {
+     .grid-test {
+       grid-template-areas: 
+     "c a a a"
+     "c b b b"
+     "c d d d";
+     }
+    }
+    .grid-test > div{
+      background-color: aqua;
+    }
+    
+    .grid-Header {
+    grid-area: a;
+    }
+    .grid-Main {
+     grid-area: b;
+    }
+    .grid-Sidebar {
+     grid-area: c;
+    }
+    .grid-footer {
+     grid-area: d;
+    }
